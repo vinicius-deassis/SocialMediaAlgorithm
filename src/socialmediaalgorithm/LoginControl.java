@@ -30,7 +30,8 @@ public class LoginControl {
         return register;       
     }
     
-    public void ChechRegister(Register r){
+    public boolean ChechRegister(Register r){
+        boolean login = false;
         int found = 0;
         for(Register check:users){
             if(check.getUser().equals(r.getUser()) && check.getPass().equals(r.getPass())){
@@ -38,11 +39,16 @@ public class LoginControl {
             }
             else{
                 found = found +1;               
-            }            
+            }
+        }            
         if(found == users.size()){
             System.out.println("Nao encontrado");
-            }
+            login = false;
         }
+        else{
+            login = true;
+        }
+        return login;
     }
 }
 

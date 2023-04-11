@@ -6,6 +6,8 @@ package GUI;
 import javax.swing.JOptionPane;
 import socialmediaalgorithm.Register;
 import socialmediaalgorithm.LoginControl;
+import socialmediaalgorithm.LoginControl;
+import socialmediaalgorithm.Register;
 /**
  *
  * @author Vinicius Assis
@@ -126,24 +128,38 @@ import socialmediaalgorithm.LoginControl;
     }//GEN-LAST:event_inputUserActionPerformed
 
     private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed
+        String user = inputUser.getText();
+        String pass = new String(inputPass.getPassword());
+        Register conta = new Register(user,pass);
         
+        LoginControl checando = new LoginControl();
+        if(checando.ChechRegister(conta)){
+            JOptionPane.showMessageDialog(rootPane, "login ok");
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "Usuario ou senha incorretos");
+        }
     }//GEN-LAST:event_jButtonEnterActionPerformed
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
-                
-        String user = inputUser.getText();
-        String pass = new String(inputPass.getPassword());
-        Register conta = new Register("Vinicius","assos");
+
+        Register conta = new Register(inputUser.getText(),inputPass.getText());
+        
+        Register conta1 = new Register("Vinicius", "Assis");
+        Register conta2 = new Register("Nicolas","Fernandes");
         
         LoginControl adicionando = new LoginControl();
         adicionando.Registering(conta);
         
+        adicionando.Registering(conta1);
+        adicionando.Registering(conta2);
         
     }//GEN-LAST:event_jButtonRegisterActionPerformed
 
     private void jButtonMostrarCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMostrarCadastrosActionPerformed
         LoginControl c = new LoginControl();
-        c.ShowRegister();
+        System.out.println(c.ShowRegister());
+        
         JOptionPane.showMessageDialog(rootPane, c.ShowRegister());   
         
     }//GEN-LAST:event_jButtonMostrarCadastrosActionPerformed

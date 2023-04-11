@@ -18,9 +18,9 @@ public class Admin {
         cadastrando.Registering(conta1);
         cadastrando.Registering(conta2);
         
-        //System.out.println(cadastrando.ShowRegister());
+        System.out.println(cadastrando.ShowRegister());
         
-        cadastrando.ChechRegister(contateste);
+        System.out.println(cadastrando.ChechRegister(contateste));
     }
     
 }
