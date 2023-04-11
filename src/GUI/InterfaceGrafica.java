@@ -4,10 +4,9 @@
  */
 package GUI;
 import javax.swing.JOptionPane;
-import socialmediaalgorithm.Register;
-import socialmediaalgorithm.LoginControl;
-import socialmediaalgorithm.LoginControl;
-import socialmediaalgorithm.Register;
+import LoginSystem.LoginControl;
+import LoginSystem.Register;
+
 /**
  *
  * @author Vinicius Assis
@@ -142,17 +141,15 @@ import socialmediaalgorithm.Register;
     }//GEN-LAST:event_jButtonEnterActionPerformed
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
-
-        Register conta = new Register(inputUser.getText(),inputPass.getText());
-        
         Register conta1 = new Register("Vinicius", "Assis");
         Register conta2 = new Register("Nicolas","Fernandes");
+        Register contateste = new Register("Vinicius","Assis");
         
-        LoginControl adicionando = new LoginControl();
-        adicionando.Registering(conta);
+        LoginControl cadastrando = new LoginControl();
+        cadastrando.Registering(conta1);
+        cadastrando.Registering(conta2);
         
-        adicionando.Registering(conta1);
-        adicionando.Registering(conta2);
+        
         
     }//GEN-LAST:event_jButtonRegisterActionPerformed
 
