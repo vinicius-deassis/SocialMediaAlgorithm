@@ -1,28 +1,20 @@
 package dados;
 
-import negocio.User;
+import negocio.PerfilUser;
 
-import java.io.*;
+import java.sql.SQLException;
+import java.util.List;
 
-public class PerfilDAO {
-    private static final String ARQUIVO_PERFIL = "perfil.dat";
+public interface PerfilDAO {
+    public void inserir(PerfilUser PerfilUser) throws SQLException;
+    public void atualizar(PerfilUser PerfilUser) throws SQLException;
+    public void excluir(String email) throws SQLException;
+    public List<PerfilUser> listar() throws SQLException;
+    public PerfilUser buscarPorEmail(String email) throws SQLException;
 
-    public static void salvar(User user) throws IOException {
-        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(ARQUIVO_PERFIL))) {
-            objectOutputStream.writeObject(user);
-        } catch (IOException ex) {
-            throw new IOException("Erro ao salvar perfil do usuário.", ex);
-        }
-    }
-
-    public static User carregarPerfil() throws IOException, ClassNotFoundException {
-        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(ARQUIVO_PERFIL))) {
-            return (User) objectInputStream.readObject();
-        } catch (IOException ex) {
-            throw new IOException("Erro ao carregar perfil do usuário.", ex);
-        } catch (ClassNotFoundException ex) {
-            throw new ClassNotFoundException("Perfil do usuário não encontrado.", ex);
-        }
-    }
-
+/*
+    // Adiciona as afinidades do usuário
+    user.addAfinidade("Esportes", 5);
+    user.addAfinidade("Cultura Pop", 8);
+    perfilDAO.addPerfilUser(user);*/
 }
