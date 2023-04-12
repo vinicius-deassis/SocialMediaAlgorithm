@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class User {
-    private Map<String, Integer> afinidades;
+    private static Map<String, Integer> afinidades;
 
     public User() {
         afinidades = new HashMap<>();
@@ -19,7 +19,8 @@ public class User {
         }
     }
 
-    public Map<String, Integer> getAfinidades() {
+    public static Map<String, Integer> getAfinidades() {
         return afinidades;
     }
 }
+//teste3
