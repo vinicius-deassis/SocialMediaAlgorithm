@@ -6,18 +6,19 @@ package GUI;
 import javax.swing.JOptionPane;
 import LoginSystem.LoginControl;
 import LoginSystem.Register;
+import javax.swing.JLabel;
 
 /**
  *
  * @author Vinicius Assis
  */
-    public class InterfaceGrafica extends javax.swing.JFrame {
-        
-
+    public class InterfaceLogin extends javax.swing.JFrame {        
     /**
      * Creates new form InterfaceGrafica
      */
-    public InterfaceGrafica() {
+    private final LoginControl cadastrando = new LoginControl();
+            
+    public InterfaceLogin() {
         initComponents();
     }
 
@@ -30,6 +31,7 @@ import LoginSystem.Register;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         inputUser = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -37,6 +39,9 @@ import LoginSystem.Register;
         jButtonRegister = new javax.swing.JButton();
         jButtonMostrarCadastros = new javax.swing.JButton();
         inputPass = new javax.swing.JPasswordField();
+        buttonTest = new javax.swing.JButton();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,32 +82,39 @@ import LoginSystem.Register;
             }
         });
 
+        buttonTest.setText("teste");
+        buttonTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTestActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButtonEnter)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButtonRegister))
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel1)
+                        .addComponent(inputUser)
+                        .addComponent(inputPass, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonEnter)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonRegister))
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(inputUser)
-                            .addComponent(inputPass)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(jButtonMostrarCadastros)))
-                .addContainerGap(130, Short.MAX_VALUE))
+                        .addComponent(jButtonMostrarCadastros)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonTest, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inputUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -115,8 +127,10 @@ import LoginSystem.Register;
                     .addComponent(jButtonEnter)
                     .addComponent(jButtonRegister))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonMostrarCadastros)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonMostrarCadastros)
+                    .addComponent(buttonTest))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -131,9 +145,10 @@ import LoginSystem.Register;
         String pass = new String(inputPass.getPassword());
         Register conta = new Register(user,pass);
         
-        LoginControl checando = new LoginControl();
-        if(checando.ChechRegister(conta)){
+        if(cadastrando.ChechRegister(conta)){
             JOptionPane.showMessageDialog(rootPane, "login ok");
+            new InterfaceAlgoritmo().setVisible(true);          
+            
         }
         else{
             JOptionPane.showMessageDialog(rootPane, "Usuario ou senha incorretos");
@@ -141,29 +156,26 @@ import LoginSystem.Register;
     }//GEN-LAST:event_jButtonEnterActionPerformed
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
-        Register conta1 = new Register("Vinicius", "Assis");
-        Register conta2 = new Register("Nicolas","Fernandes");
-        Register contateste = new Register("Vinicius","Assis");
+        String user = inputUser.getText();
+        String pass = new String(inputPass.getPassword());
+        Register conta = new Register(user, pass);
         
-        LoginControl cadastrando = new LoginControl();
-        cadastrando.Registering(conta1);
-        cadastrando.Registering(conta2);
-        
-        
-        
+        cadastrando.Registering(conta);        
     }//GEN-LAST:event_jButtonRegisterActionPerformed
 
     private void jButtonMostrarCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMostrarCadastrosActionPerformed
-        LoginControl c = new LoginControl();
-        System.out.println(c.ShowRegister());
-        
-        JOptionPane.showMessageDialog(rootPane, c.ShowRegister());   
+       
+        JOptionPane.showMessageDialog(rootPane, cadastrando.ShowRegister());   
         
     }//GEN-LAST:event_jButtonMostrarCadastrosActionPerformed
 
     private void inputPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPassActionPerformed
+
+    private void buttonTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTestActionPerformed
+        
+    }//GEN-LAST:event_buttonTestActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,30 +194,33 @@ import LoginSystem.Register;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfaceGrafica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfaceLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfaceGrafica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfaceLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfaceGrafica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfaceLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfaceGrafica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfaceLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterfaceGrafica().setVisible(true);
+                new InterfaceLogin().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonTest;
     private javax.swing.JPasswordField inputPass;
     private javax.swing.JTextField inputUser;
     private javax.swing.JButton jButtonEnter;
     private javax.swing.JButton jButtonMostrarCadastros;
     private javax.swing.JButton jButtonRegister;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

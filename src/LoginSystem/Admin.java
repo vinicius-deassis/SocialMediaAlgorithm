@@ -12,7 +12,7 @@ public class Admin {
     public static void main(String[] args) {
         Register conta1 = new Register("Vinicius", "Assis");
         Register conta2 = new Register("Nicolas","Fernandes");
-        Register contateste = new Register("Vinicius","Assis");
+        Register contateste = new Register("","Assis");
         
         LoginControl cadastrando = new LoginControl();
         cadastrando.Registering(conta1);
