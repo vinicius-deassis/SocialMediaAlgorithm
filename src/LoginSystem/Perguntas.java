@@ -2,12 +2,12 @@ package LoginSystem;
 
 import negocio.User;
 
-public class Pergunta {
+public class Perguntas {
     private String tema;
-    private String[] subtema;
+    private String subtema;
     private String pergunta;
 
-    public Perguntas(String tema, String[] subtema, String pergunta) {
+    public Perguntas(String tema, String subtema, String pergunta) {
         this.tema = tema;
         this.subtema = subtema;
         this.pergunta = pergunta;
@@ -25,7 +25,7 @@ public class Pergunta {
         return tema;
     }
 
-    public String getSubtemas() {
+    public String getSubtema() {
         return subtema;
     }
 }
