@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author VInicius Assis
+ * @author Vinicius Assis
  */
 public class LoginControl {
     ArrayList<Register> users;
