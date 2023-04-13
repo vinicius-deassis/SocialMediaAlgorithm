@@ -1,8 +1,8 @@
 package negocio;
 
-import GUI.IPerfilUserDAO;
-import dados.PerfilDAOImpl;
-import dados.PerfilUserDAO;
+import GUI.*;
+import dados.*;
+import negocio.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,7 +53,7 @@ public class User extends PerfilUser {
     }
 
     public Map<String, Integer> getAfinidades() {
-        return afinidades;
+        return this.afinidades;
     }
 
 

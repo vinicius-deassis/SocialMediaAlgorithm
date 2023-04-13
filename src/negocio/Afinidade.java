@@ -3,6 +3,7 @@ package negocio;
 public class Afinidade extends User {
     private Tema tema;
     private Integer valor;
+    
 
     public Afinidade("esportes", 8) {
         this.tema = tema;
