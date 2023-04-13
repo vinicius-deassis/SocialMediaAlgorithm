@@ -39,7 +39,6 @@ import javax.swing.JLabel;
         jButtonRegister = new javax.swing.JButton();
         jButtonMostrarCadastros = new javax.swing.JButton();
         inputPass = new javax.swing.JPasswordField();
-        buttonTest = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -82,33 +81,26 @@ import javax.swing.JLabel;
             }
         });
 
-        buttonTest.setText("teste");
-        buttonTest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonTestActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButtonEnter)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButtonRegister))
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel1)
-                        .addComponent(inputUser)
-                        .addComponent(inputPass, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonMostrarCadastros)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonTest, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonEnter)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonRegister))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(inputUser)
+                            .addComponent(inputPass, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jButtonMostrarCadastros)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -127,9 +119,7 @@ import javax.swing.JLabel;
                     .addComponent(jButtonEnter)
                     .addComponent(jButtonRegister))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonMostrarCadastros)
-                    .addComponent(buttonTest))
+                .addComponent(jButtonMostrarCadastros)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -173,10 +163,6 @@ import javax.swing.JLabel;
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPassActionPerformed
 
-    private void buttonTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTestActionPerformed
-        
-    }//GEN-LAST:event_buttonTestActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -214,7 +200,6 @@ import javax.swing.JLabel;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonTest;
     private javax.swing.JPasswordField inputPass;
     private javax.swing.JTextField inputUser;
     private javax.swing.JButton jButtonEnter;

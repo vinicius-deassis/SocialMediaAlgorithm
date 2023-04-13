@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import dados.SistemaImagens;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Random;
@@ -15,17 +16,27 @@ import javax.swing.ImageIcon;
  */
 public class InterfaceAlgoritmo extends javax.swing.JFrame {
     public Random random =  new Random();
-    
+    public SistemaImagens config =  new SistemaImagens();
     public ArrayList<Image> lista = new ArrayList();
+    public ArrayList<String> lista_imagens = new ArrayList();
         
     
     /**
      * Creates new form InterfaceAlgoritmo
      */
     public InterfaceAlgoritmo() {
-        initComponents();        
+        initComponents();       
         
+        lista_imagens.add("/Images/basquete.jpg");
         
+        Image img = config.setImageSize("/Images/basquete.jpg");
+        Image img1 = config.setImageSize("/Images/futebol.jpg");
+        Image img2 = config.setImageSize("/Images/cachorro.jpg");
+
+        lista.add(img);
+        lista.add(img1);
+        lista.add(img2);
+       
     }
 
     /**
@@ -37,9 +48,12 @@ public class InterfaceAlgoritmo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         lbl_img = new javax.swing.JLabel();
         buttonLike = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,23 +102,13 @@ public class InterfaceAlgoritmo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonLikeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLikeActionPerformed
-        int x = random.nextInt(3);     
+        int x = random.nextInt(7);
         
-        ImageIcon imgg = new ImageIcon(getClass().getResource("/Images/basquete.jpg"));
-        Image img = imgg.getImage().getScaledInstance(100, 149, Image.SCALE_DEFAULT);
-        
-        ImageIcon imgg1 = new ImageIcon(getClass().getResource("/Images/futebol.jpg"));
-        Image img1 = imgg1.getImage().getScaledInstance(100, 149, Image.SCALE_DEFAULT);
-        
-        ImageIcon imgg2 = new ImageIcon(getClass().getResource("/Images/cachorro.jpg"));
-        Image img2 = imgg2.getImage().getScaledInstance(100, 149, Image.SCALE_DEFAULT);
+        //ArrayList<Integer> listaaleatoria = config.RandomList(5, 7);
         
         
-        lista.add(img);
-        lista.add(img1);
-        lista.add(img2);
         
-        lbl_img.setIcon(new ImageIcon(lista.get(x)));
+        lbl_img.setIcon(new ImageIcon(this.lista.get(x)));
     }//GEN-LAST:event_buttonLikeActionPerformed
 
     /**
@@ -141,9 +145,10 @@ public class InterfaceAlgoritmo extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonLike;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel lbl_img;
     // End of variables declaration//GEN-END:variables
