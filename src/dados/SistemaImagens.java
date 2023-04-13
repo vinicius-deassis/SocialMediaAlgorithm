@@ -18,27 +18,24 @@ import javax.swing.ImageIcon;
 public class SistemaImagens {
     private Random random;
     private ArrayList<Image> lista;
-    private Set<Integer> numeros;
     
     public SistemaImagens(){
-        this.numeros = new HashSet<Integer>();
-        this.lista = new ArrayList();     
+        Set<Integer> numeros = new HashSet<Integer>();
+        
+        while (numeros.size() < 5) {
+            numeros.add(random.nextInt(7));
         }
+        
+        ArrayList<Integer> listaNumeros = new ArrayList<Integer>(numeros);
+        System.out.println(listaNumeros);
+        
+        ImageIcon imgg = new ImageIcon(getClass().getResource("/Images/esportes/basquete.jpg"));
+        Image img = imgg.getImage().getScaledInstance(100, 149, Image.SCALE_DEFAULT);
+        
+        this.lista.add(img);
+        
+    }
     
-        public Image setImageSize(String imageLink){
-            ImageIcon imgg = new ImageIcon(getClass().getResource(imageLink));
-            Image img = imgg.getImage().getScaledInstance(100, 149, Image.SCALE_DEFAULT);
-            return img;
-        }
-        
-        public ArrayList<Integer> RandomList(int Size, int Bound){
-            while (this.numeros.size() < Size) {
-            numeros.add(random.nextInt(Bound));
-            }
-        
-            ArrayList<Integer> listaNumeros = new ArrayList(numeros);
-            return listaNumeros;
-        }
-        
-}   
-
+    
+    
+}
