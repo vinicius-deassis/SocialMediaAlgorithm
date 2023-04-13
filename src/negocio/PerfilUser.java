@@ -1,65 +1,47 @@
 package negocio;
 
-import LoginSystem.Pergunta;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class PerfilUser {
-    private List<Pergunta> perguntas;
-    private String[] respostas;
-    private User user;
-    private Map<String, Map<String, Integer>> frequencias;
-    private static final int VALOR_AFINIDADE = 1;
+    private String user;
+    private String pass;
+    private ArrayList<Afinidade> afinidades;
 
-    public PerfilUser(List<Pergunta> perguntas) {
-        this.perguntas = perguntas;
-        respostas = new String[perguntas.size()];
-        user = new User();
-        frequencias = new HashMap<>();
-        inicializarFrequencias();
+    public PerfilUser(String user, String pass, ArrayList<Afinidade> afinidades) {
+        this.user = user;
+        this.pass = pass;
+        this.afinidades = afinidades;
     }
 
-    private void inicializarFrequencias() {
-        for (Pergunta pergunta : perguntas) {
-            Map<String, Integer> subFrequencias = new HashMap<>();
-            for (String subTema : pergunta.getSubtemas()) {
-                subFrequencias.put(subTema, 0);
-            }
-            frequencias.put(pergunta.getTema(), subFrequencias);
-        }
+    public PerfilUser(ArrayList<Afinidade> afinidades) {
+        this.afinidades = afinidades;
     }
 
-    public void responder(int indice, String resposta) {
-        respostas[indice] = resposta;
-        atualizarFrequencias(indice, resposta);
-    }
-
-    private void atualizarFrequencias(int indice, String resposta) {
-        Pergunta pergunta = perguntas.get(indice);
-        Map<String, Integer> subFrequencias = frequencias.get(pergunta.getTema());
-        List<String> subTemas = Arrays.asList(pergunta.getSubtemas());
-        String subTemaSelecionado = subTemas.get(Integer.parseInt(resposta) - 1);
-        for (String subTema : subTemas) {
-            if (subTema.equals(subTemaSelecionado)) {
-                user.addAfinidade(subTema, VALOR_AFINIDADE);
-                int frequencia = subFrequencias.get(subTema);
-                subFrequencias.put(subTema, frequencia + VALOR_AFINIDADE);
-            } else {
-                int frequencia = subFrequencias.get(subTema);
-                subFrequencias.put(subTema, frequencia - VALOR_AFINIDADE);
-            }
-        }
-    }
-
-    public User getUser() {
+    public String getUser() {
         return user;
     }
 
-    public Map<String, Map<String, Integer>> getFrequencias() {
-        return frequencias;
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public ArrayList<Afinidade> getafinidades() {
+        return afinidades;
+    }
+
+    public void setAfinidades(ArrayList<Afinidade> afinidades) {
+        this.afinidades = afinidades;
+    }
+
+    public String getUsername() {
+        return user;
     }
 }
-
