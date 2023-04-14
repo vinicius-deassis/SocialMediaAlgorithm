@@ -1,11 +1,13 @@
 package negocio;
 
+import java.util.List;
+
 public class Afinidade extends User {
     private Tema tema;
     private Integer valor;
     
 
-    public Afinidade("esportes", 8) {
+    public Afinidade(Tema tema, Integer valor) {
         this.tema = tema;
         this.valor = valor;
     }
