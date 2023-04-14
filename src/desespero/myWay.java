@@ -2,6 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
+//Na hora de trasnferir os arquivos para um drive para baixar em sala, perdemos alterações importantes uma classe importante de dados SistemaImagens.java, então tentamos refazer nas pressas e é este aqruivo que o senhor vê
 package desespero;
 import LoginSystem.*;
 import java.util.ArrayList;
