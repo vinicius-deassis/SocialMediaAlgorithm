@@ -2,6 +2,7 @@ package negocio;
 
 import java.util.List;
 
+//Variavel Afinidade e seus metodos para implementação
 public class Afinidade extends User {
     private Tema tema;
     private Integer valor;
