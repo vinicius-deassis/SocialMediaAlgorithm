@@ -37,11 +37,8 @@ public class SistemaImagens {
     }
     
     public Image createImage(String link){
-        ImageIcon imgg = new ImageIcon(getClass().getResource(link));
+        ImageIcon imgg = new ImageIcon(getClass().getResource("/Images/esportes/futebol.jpg"));
         Image img = imgg.getImage().getScaledInstance(100, 149, Image.SCALE_DEFAULT);
         return img;
-    }
-    
-    
-    
+    }  
 }
