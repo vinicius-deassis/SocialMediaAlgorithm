@@ -1,26 +1,20 @@
 package negocio;
 
-import GUI.*;
-import dados.*;
-import negocio.*;
-
 import java.util.HashMap;
 import java.util.Map;
 
-public class User extends PerfilUser {
+public class User {
     private String nome;
     private String user;
     private Map<String, Integer> afinidades;
 
     public User(String nome, String user, String pass, Map<String, Integer> afinidades) {
-        super(user, pass, afinidades);
         this.nome = nome;
         this.user = user;
         this.afinidades = afinidades;
     }
 
     public User(String username) {
-        super(username, "", Tema "esportes", Integer 8);
         this.nome = "";
         this.user = username;
         this.afinidades = new HashMap<>();
@@ -55,5 +49,4 @@ public class User extends PerfilUser {
     public Map<String, Integer> getAfinidades() {
         return this.afinidades;
     }
-
-
+}
