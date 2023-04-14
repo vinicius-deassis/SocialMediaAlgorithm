@@ -26,6 +26,7 @@ public class PerfilDAOImpl implements PerfilDAO {
         return perfis;
     }
 
+    // Adiciona um novo perfil de usuário à lista de perfis e salva no arquivo
     public void salvarPerfilUser(PerfilUser perfil) {
         perfis.add(perfil);
         salvarPerfis();
@@ -41,7 +42,8 @@ public class PerfilDAOImpl implements PerfilDAO {
         perfis.remove(perfil);
         salvarPerfis();
     }
-
+    
+    // Salva a lista de perfis de usuários no arquivo
     private void salvarPerfis() {
         try {
             File file = new File(FILE_NAME);
@@ -67,31 +69,36 @@ public class PerfilDAOImpl implements PerfilDAO {
             ex.printStackTrace();
         }
     }
-
+    
+    
+    // Métodos da interface PerfilDAO que precisam ser implementados
     @Override
     public void inserir(PerfilUser PerfilUser) throws SQLException {
-
+        perfis.add(PerfilUser);
+        salvarPerfis();
     }
 
     @Override
     public void atualizar(PerfilUser PerfilUser) throws SQLException {
-
+        int index = perfis.indexOf(PerfilUser);
+        perfis.set(index, PerfilUser);
+        salvarPerfis();
     }
 
     @Override
-    public void excluir(String email) throws SQLException {
-
+    public void excluir(String user) throws SQLException {
+        for (PerfilUser perfil : perfis) {
+            if (perfil.getUser().equals(user)) {
+                perfis.remove(perfil);
+                salvarPerfis();
+                break;
+            }
+        }
     }
 
     @Override
     public List<PerfilUser> listar() throws SQLException {
-        return null;
-    }
-
-    @Override
-    public PerfilUser buscarPorEmail(String email) throws SQLException {
-        return null;
+        return perfis;
     }
 }
-
 
